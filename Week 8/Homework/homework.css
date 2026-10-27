@@ -1,0 +1,160 @@
+:root {
+    color-scheme: light;
+    --page: #fff8f0;
+    --surface: #fff;
+    --border: #f2d8c2;
+    --text: #2d2d2d;
+    --muted: #71685f;
+    --accent: #ff6f61;
+    --accent-hover: #e85d50;
+    --focus: #1a56db;
+    --error: #b42318;
+    --error-bg: #fff1f0;
+    --success: #18794e;
+    --success-bg: #ecfdf3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: min(100% - 32px, 620px);
+    margin: 40px auto;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    box-shadow: 0 12px 32px rgba(80, 52, 30, .08);
+}
+
+h1 {
+    margin: 0 0 22px;
+    color: var(--text);
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    line-height: 1.2;
+}
+
+form {
+    display: grid;
+    gap: 20px;
+}
+
+fieldset {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+    margin: 0;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+legend {
+    padding: 0 8px;
+    color: var(--muted);
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+label {
+    margin-top: 8px;
+    font-size: .92rem;
+    font-weight: 700;
+}
+
+input {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #c9c4bd;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+}
+
+input:focus {
+    border-color: var(--focus);
+    outline: 3px solid rgba(26, 86, 219, .18);
+}
+
+input[aria-invalid="true"] {
+    border-color: var(--error);
+    background: var(--error-bg);
+}
+
+.error {
+    min-height: 1.25em;
+    color: var(--error);
+    font-size: .85rem;
+}
+
+.error:empty {
+    display: none;
+}
+
+button {
+    justify-self: start;
+    min-height: 44px;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color .15s ease, opacity .15s ease;
+}
+
+button:hover:not(:disabled) {
+    background: var(--accent-hover);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+}
+
+#success {
+    padding: 0;
+    color: var(--success);
+    font-weight: 700;
+}
+
+#success:not(:empty) {
+    padding: 12px;
+    border: 1px solid #abefc6;
+    border-radius: 8px;
+    background: var(--success-bg);
+}
+
+@media (max-width: 480px) {
+    body {
+        width: min(100% - 20px, 620px);
+        margin: 16px auto;
+        padding: 20px 16px;
+    }
+
+    fieldset {
+        padding: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
