@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Error Handling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 16px;
+            cursor: pointer;
+        }
+
+        #output {
+            padding: 15px;
+            background: #f3f4f6;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Fetch Error Handling</h1>
+    <p>Try a valid URL or a URL that does not exist.</p>
+
+    <label for="url">API URL</label>
+    <input type="url" id="url" value="https://jsonplaceholder.typicode.com/users/1">
+
+    <button id="fetch-btn" type="button">Try Fetch</button>
+    <p id="status" aria-live="polite">Ready.</p>
+    <pre id="output"></pre>
+
+    <script>
+        const urlInput = document.getElementById("url");
+        const button = document.getElementById("fetch-btn");
+        const status = document.getElementById("status");
+        const output = document.getElementById("output");
+
+        async function loadData(url) {
+            button.disabled = true;
+            status.textContent = "Loading...";
+            output.textContent = "";
+
+            try {
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error("HTTP error: " + response.status);
+                }
+
+                const data = await response.json();
+                output.textContent = JSON.stringify(data, null, 2);
+                status.textContent = "Data loaded successfully.";
+            } catch (error) {
+                status.textContent = "Request failed.";
+                output.textContent = error.message;
+            } finally {
+                button.disabled = false;
+            }
+        }
+
+        button.addEventListener("click", () => {
+            if (!urlInput.checkValidity()) {
+                status.textContent = "Please enter a valid URL.";
+                urlInput.reportValidity();
+                return;
+            }
+
+            loadData(urlInput.value);
+        });
+    </script>
+</body>
+
+</html>

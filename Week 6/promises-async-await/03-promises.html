@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Promises</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 14px;
+            margin: 4px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f3f4f6;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Understanding Promises</h1>
+    <p>A Promise represents a result that may become available later.</p>
+
+    <button type="button" id="pending">Pending</button>
+    <button type="button" id="fulfilled">Fulfilled</button>
+    <button type="button" id="rejected">Rejected</button>
+    <div id="output" aria-live="polite">Choose a Promise state.</div>
+
+    <h2>Try a real Promise</h2>
+    <button type="button" id="request">Fetch a User</button>
+
+    <script>
+        const output = document.getElementById("output");
+
+        document.getElementById("pending").addEventListener("click", () => {
+            output.textContent =
+                "Pending: the operation has not finished yet.";
+        });
+
+        document.getElementById("fulfilled").addEventListener("click", () => {
+            output.textContent =
+                "Fulfilled: the Promise completed successfully.";
+        });
+
+        document.getElementById("rejected").addEventListener("click", () => {
+            output.textContent =
+                "Rejected: the Promise failed.";
+        });
+
+        document.getElementById("request").addEventListener("click", () => {
+            output.textContent = "Requesting user...";
+
+            fetch("https://jsonplaceholder.typicode.com/users/1")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("HTTP " + response.status);
+                    }
+                    return response.json();
+                })
+                .then(user => {
+                    output.textContent =
+                        "Name: " + user.name + "\nEmail: " + user.email;
+                })
+                .catch(error => {
+                    output.textContent = "Failed: " + error.message;
+                });
+        });
+    </script>
+</body>
+
+</html>

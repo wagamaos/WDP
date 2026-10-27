@@ -8,33 +8,36 @@
 
     <style>
         :root {
-            --bg:        #f4f4f9;
-            --card:      #ffffff;
-            --primary:   #4f46e5;
+            --bg: #f4f4f9;
+            --card: #ffffff;
+            --primary: #4f46e5;
             --primary-h: #3730a3;
-            --text:      #333;
-            --muted:     #666;
-            --sub-bg:    #f9fafb;
-            --border:    #e5e7eb;
-            --danger:    #dc2626;
-            --success:   #16a34a;
-            --heart:     #ef4444;
+            --text: #333;
+            --muted: #666;
+            --sub-bg: #f9fafb;
+            --border: #e5e7eb;
+            --danger: #dc2626;
+            --success: #16a34a;
+            --heart: #ef4444;
         }
 
         [data-theme="dark"] {
-            --bg:      #0f0f1a;
-            --card:    #1a1a2e;
+            --bg: #0f0f1a;
+            --card: #1a1a2e;
             --primary: #818cf8;
-            --primary-h:#a5b4fc;
-            --text:    #e2e8f0;
-            --muted:   #94a3b8;
-            --sub-bg:  #16213e;
-            --border:  #2d2d4e;
-            --danger:  #f87171;
+            --primary-h: #a5b4fc;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --sub-bg: #16213e;
+            --border: #2d2d4e;
+            --danger: #f87171;
             --success: #4ade80;
         }
 
-        * { box-sizing: border-box; transition: background-color 0.3s, color 0.3s; }
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
         body {
             font-family: Arial, sans-serif;
@@ -55,7 +58,11 @@
             align-items: center;
         }
 
-        .top-bar h1 { margin: 0; font-size: 1.5rem; color: var(--primary); }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
 
         .theme-btn {
             background: var(--card);
@@ -66,7 +73,10 @@
             font-size: 0.85rem;
             color: var(--text);
         }
-        .theme-btn:hover { border-color: var(--primary); }
+
+        .theme-btn:hover {
+            border-color: var(--primary);
+        }
 
         /* ── CONTAINER ── */
         .container {
@@ -78,7 +88,11 @@
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
         }
 
-        .subtitle { color: var(--muted); margin: 0 0 18px; font-size: 0.95rem; }
+        .subtitle {
+            color: var(--muted);
+            margin: 0 0 18px;
+            font-size: 0.95rem;
+        }
 
         /* ── FILTER ROW ── */
         .filter-row {
@@ -99,8 +113,17 @@
             cursor: pointer;
             font-weight: 600;
         }
-        .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
-        .filter-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
 
         /* ── ACTION ROW ── */
         .action-row {
@@ -121,8 +144,15 @@
             cursor: pointer;
             font-weight: 700;
         }
-        button.primary-btn:hover  { background-color: var(--primary-h); }
-        button.primary-btn:disabled { background-color: #999; cursor: not-allowed; }
+
+        button.primary-btn:hover {
+            background-color: var(--primary-h);
+        }
+
+        button.primary-btn:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
 
         button.sec-btn {
             background: var(--sub-bg);
@@ -134,11 +164,24 @@
             cursor: pointer;
             font-weight: 600;
         }
-        button.sec-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+        button.sec-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
 
         /* ── STATUS ── */
-        #loading { color: var(--muted); margin: 14px 0 0; font-size: 0.9rem; }
-        #error   { color: var(--danger); margin: 14px 0 0; font-size: 0.9rem; }
+        #loading {
+            color: var(--muted);
+            margin: 14px 0 0;
+            font-size: 0.9rem;
+        }
+
+        #error {
+            color: var(--danger);
+            margin: 14px 0 0;
+            font-size: 0.9rem;
+        }
 
         /* ── JOKE BOX ── */
         .joke-box {
@@ -165,12 +208,29 @@
             text-transform: uppercase;
         }
 
-        .joke-box h2 { color: var(--primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 4px; }
-        .joke-box p  { color: var(--text); line-height: 1.65; margin: 0 0 16px; font-size: 1rem; }
-        .joke-box p:last-child { margin-bottom: 0; }
+        .joke-box h2 {
+            color: var(--primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin: 0 0 4px;
+        }
+
+        .joke-box p {
+            color: var(--text);
+            line-height: 1.65;
+            margin: 0 0 16px;
+            font-size: 1rem;
+        }
+
+        .joke-box p:last-child {
+            margin-bottom: 0;
+        }
 
         /* punchline hidden by default */
-        #punchSection { display: none; }
+        #punchSection {
+            display: none;
+        }
 
         #revealBtn {
             background: none;
@@ -183,7 +243,11 @@
             font-weight: 700;
             margin-top: 6px;
         }
-        #revealBtn:hover { background: var(--primary); color: #fff; }
+
+        #revealBtn:hover {
+            background: var(--primary);
+            color: #fff;
+        }
 
         /* ── REACTION ROW ── */
         .reaction-row {
@@ -206,9 +270,22 @@
             gap: 5px;
             font-weight: 600;
         }
-        .react-btn:hover { border-color: var(--primary); }
-        .react-btn.liked  { background: #fff0f0; border-color: var(--heart); color: var(--heart); }
-        .react-btn.copied { background: #f0fff4; border-color: var(--success); color: var(--success); }
+
+        .react-btn:hover {
+            border-color: var(--primary);
+        }
+
+        .react-btn.liked {
+            background: #fff0f0;
+            border-color: var(--heart);
+            color: var(--heart);
+        }
+
+        .react-btn.copied {
+            background: #f0fff4;
+            border-color: var(--success);
+            color: var(--success);
+        }
 
         /* ── COUNTER BAR ── */
         .counter-bar {
@@ -227,7 +304,12 @@
             font-size: 0.8rem;
             color: var(--muted);
         }
-        .counter-chip strong { color: var(--primary); font-size: 1.1rem; display: block; }
+
+        .counter-chip strong {
+            color: var(--primary);
+            font-size: 1.1rem;
+            display: block;
+        }
 
         /* ── HISTORY ── */
         .history-section {
@@ -242,7 +324,13 @@
             margin-bottom: 10px;
         }
 
-        .history-header h3 { margin: 0; font-size: 0.9rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; }
+        .history-header h3 {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
 
         .clear-btn {
             background: none;
@@ -252,9 +340,19 @@
             cursor: pointer;
             font-weight: 700;
         }
-        .clear-btn:hover { text-decoration: underline; }
 
-        #historyList { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+        .clear-btn:hover {
+            text-decoration: underline;
+        }
+
+        #historyList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
 
         .history-item {
             background: var(--sub-bg);
@@ -267,13 +365,43 @@
             cursor: pointer;
             transition: border-color 0.15s;
         }
-        .history-item:hover { border-color: var(--primary); }
-        .history-item .hi-cat  { font-size: 0.7rem; color: var(--primary); font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
-        .history-item .hi-setup { font-weight: 700; }
-        .history-item .hi-time  { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
-        .history-item .hi-fav   { position: absolute; top: 10px; right: 12px; font-size: 1rem; }
 
-        .empty-history { color: var(--muted); font-size: 0.85rem; font-style: italic; padding: 10px 0; }
+        .history-item:hover {
+            border-color: var(--primary);
+        }
+
+        .history-item .hi-cat {
+            font-size: 0.7rem;
+            color: var(--primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 3px;
+        }
+
+        .history-item .hi-setup {
+            font-weight: 700;
+        }
+
+        .history-item .hi-time {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .history-item .hi-fav {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            font-size: 1rem;
+        }
+
+        .empty-history {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            padding: 10px 0;
+        }
     </style>
 </head>
 
@@ -300,11 +428,12 @@
         <!-- ACTIONS -->
         <div class="action-row">
             <button class="primary-btn" id="loadButton" onclick="loadJoke()">Load Joke</button>
-            <button class="sec-btn" id="favBtn" onclick="toggleFavourite()" title="Save to favourites" hidden>⭐ Save</button>
+            <button class="sec-btn" id="favBtn" onclick="toggleFavourite()" title="Save to favourites" hidden>⭐
+                Save</button>
         </div>
 
         <p id="loading" hidden>⏳ Fetching a joke…</p>
-        <p id="error"   hidden></p>
+        <p id="error" hidden></p>
 
         <!-- JOKE BOX -->
         <div class="joke-box" id="jokeBox">
@@ -323,8 +452,8 @@
             <!-- REACTIONS -->
             <div class="reaction-row" id="reactionRow" hidden>
                 <button class="react-btn" id="laughBtn" onclick="react('😂')">😂 <span id="laughCount">0</span></button>
-                <button class="react-btn" id="mehBtn"   onclick="react('😐')">😐 <span id="mehCount">0</span></button>
-                <button class="react-btn" id="badBtn"   onclick="react('😬')">😬 <span id="badCount">0</span></button>
+                <button class="react-btn" id="mehBtn" onclick="react('😐')">😐 <span id="mehCount">0</span></button>
+                <button class="react-btn" id="badBtn" onclick="react('😬')">😬 <span id="badCount">0</span></button>
                 <button class="react-btn copied" id="copyBtn" onclick="copyJoke()">📋 Copy</button>
             </div>
         </div>
@@ -350,13 +479,13 @@
 
     <script>
         /* ── STATE ── */
-        let currentJoke   = null;
-        let selectedType  = 'random';
-        let reactions     = { '😂': 0, '😐': 0, '😬': 0 };
-        let history       = JSON.parse(localStorage.getItem('jokeHistory') || '[]');
-        let favourites    = JSON.parse(localStorage.getItem('jokeFavs')    || '[]');
-        let totalLoaded   = parseInt(localStorage.getItem('jokeTotal')     || '0');
-        let isDark        = localStorage.getItem('darkMode') === 'true';
+        let currentJoke = null;
+        let selectedType = 'random';
+        let reactions = { '😂': 0, '😐': 0, '😬': 0 };
+        let history = JSON.parse(localStorage.getItem('jokeHistory') || '[]');
+        let favourites = JSON.parse(localStorage.getItem('jokeFavs') || '[]');
+        let totalLoaded = parseInt(localStorage.getItem('jokeTotal') || '0');
+        let isDark = localStorage.getItem('darkMode') === 'true';
 
         /* ── INIT ── */
         if (isDark) applyDark();
@@ -372,21 +501,21 @@
 
         /* ── FETCH JOKE ── */
         async function loadJoke() {
-            const button    = document.getElementById('loadButton');
-            const loading   = document.getElementById('loading');
-            const errorEl   = document.getElementById('error');
+            const button = document.getElementById('loadButton');
+            const loading = document.getElementById('loading');
+            const errorEl = document.getElementById('error');
 
             // reset UI
-            loading.hidden  = false;
-            errorEl.hidden  = true;
+            loading.hidden = false;
+            errorEl.hidden = true;
             button.disabled = true;
             button.textContent = 'Loading…';
-            document.getElementById('revealBtn').hidden  = true;
+            document.getElementById('revealBtn').hidden = true;
             document.getElementById('punchSection').style.display = 'none';
             document.getElementById('reactionRow').hidden = true;
             document.getElementById('favBtn').hidden = true;
-            document.getElementById('jokeSetup').textContent  = '';
-            document.getElementById('jokePunch').textContent  = '';
+            document.getElementById('jokeSetup').textContent = '';
+            document.getElementById('jokePunch').textContent = '';
 
             const endpoint = selectedType === 'random'
                 ? 'https://official-joke-api.appspot.com/random_joke'
@@ -403,8 +532,8 @@
                 currentJoke = data;
 
                 document.getElementById('jokeCatBadge').textContent = data.type || selectedType;
-                document.getElementById('jokeSetup').textContent    = data.setup;
-                document.getElementById('jokePunch').textContent    = data.punchline;
+                document.getElementById('jokeSetup').textContent = data.setup;
+                document.getElementById('jokePunch').textContent = data.punchline;
 
                 // Show reveal button
                 document.getElementById('revealBtn').hidden = false;
@@ -420,8 +549,8 @@
                 errorEl.hidden = false;
                 document.getElementById('jokeSetup').textContent = 'No joke available.';
             } finally {
-                loading.hidden    = true;
-                button.disabled   = false;
+                loading.hidden = true;
+                button.disabled = false;
                 button.textContent = 'Load Joke';
             }
         }
@@ -429,7 +558,7 @@
         /* ── REVEAL PUNCHLINE ── */
         function revealPunchline() {
             document.getElementById('punchSection').style.display = 'block';
-            document.getElementById('revealBtn').hidden  = true;
+            document.getElementById('revealBtn').hidden = true;
             document.getElementById('reactionRow').hidden = false;
             document.getElementById('favBtn').hidden = false;
         }
@@ -438,8 +567,8 @@
         function react(emoji) {
             reactions[emoji]++;
             document.getElementById('laughCount').textContent = reactions['😂'];
-            document.getElementById('mehCount').textContent   = reactions['😐'];
-            document.getElementById('badCount').textContent   = reactions['😬'];
+            document.getElementById('mehCount').textContent = reactions['😐'];
+            document.getElementById('badCount').textContent = reactions['😬'];
             updateCounters();
         }
 
@@ -457,7 +586,7 @@
         /* ── FAVOURITES ── */
         function toggleFavourite() {
             if (!currentJoke) return;
-            const id  = currentJoke.id;
+            const id = currentJoke.id;
             const idx = favourites.findIndex(j => j.id === id);
             const btn = document.getElementById('favBtn');
 
@@ -504,10 +633,10 @@
         function loadHistoryJoke(index) {
             const j = history[index];
             currentJoke = j;
-            document.getElementById('jokeCatBadge').textContent   = j.type || '?';
-            document.getElementById('jokeSetup').textContent      = j.setup;
-            document.getElementById('jokePunch').textContent      = j.punchline;
-            document.getElementById('revealBtn').hidden  = false;
+            document.getElementById('jokeCatBadge').textContent = j.type || '?';
+            document.getElementById('jokeSetup').textContent = j.setup;
+            document.getElementById('jokePunch').textContent = j.punchline;
+            document.getElementById('revealBtn').hidden = false;
             document.getElementById('punchSection').style.display = 'none';
             document.getElementById('reactionRow').hidden = true;
             document.getElementById('favBtn').hidden = false;
@@ -522,10 +651,10 @@
 
         /* ── COUNTERS ── */
         function updateCounters() {
-            document.getElementById('totalCount').textContent  = totalLoaded;
-            document.getElementById('favCount').textContent    = favourites.length;
+            document.getElementById('totalCount').textContent = totalLoaded;
+            document.getElementById('favCount').textContent = favourites.length;
             const total = Object.values(reactions).reduce((a, b) => a + b, 0);
-            document.getElementById('reactTotal').textContent  = total;
+            document.getElementById('reactTotal').textContent = total;
         }
 
         /* ── DARK MODE ── */
@@ -554,7 +683,7 @@
 
         /* ── UTILS ── */
         function escHtml(str) {
-            return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }
     </script>
 </body>

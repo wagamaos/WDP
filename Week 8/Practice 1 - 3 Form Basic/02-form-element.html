@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - The Form Element</title>
+</head>
+
+<body>
+    <h1>The Form Element</h1>
+    <p>This example demonstrates the structure of a login form.</p>
+
+    <form action="https://httpbin.org/post" method="post">
+        <fieldset>
+            <legend>Login Information</legend>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+
+            <label for="pw">Password:</label>
+            <input type="password" id="pw" name="password" required>
+            <br><br>
+
+            <button type="submit">Log In</button>
+        </fieldset>
+    </form>
+
+    <h2>GET vs POST</h2>
+
+    <h3>GET Example</h3>
+    <form action="https://www.google.com/search" method="get">
+        <label for="keyword">Search keyword:</label>
+        <input type="text" id="keyword" name="q" required>
+        <button type="submit">Search with GET</button>
+    </form>
+
+    <h3>POST Example</h3>
+    <p>The login form above demonstrates POST submission.</p>
+
+    <h2>Important Attributes</h2>
+    <ul>
+        <li><code>action</code>: Where the form sends its data.</li>
+        <li><code>method</code>: How the data is submitted.</li>
+        <li><code>name</code>: The key used to identify a field's value.</li>
+        <li><code>type="submit"</code>: Submits the form.</li>
+        <li><code>for</code> and <code>id</code>: Connect a label to its input.</li>
+    </ul>
+</body>
+
+</html>

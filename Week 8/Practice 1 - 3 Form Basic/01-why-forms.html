@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - Why Forms?</title>
+</head>
+
+<body>
+    <h1>Why Forms?</h1>
+    <p>Forms allow users to send data to a server.</p>
+
+    <h2>Real-World Form Examples</h2>
+    <ul>
+        <li><strong>Login:</strong> Username and password</li>
+        <li><strong>Search:</strong> Keyword to find information</li>
+        <li><strong>Registration:</strong> Name, email and password</li>
+    </ul>
+
+    <h2>Google Search Form</h2>
+    <form action="https://www.google.com/search" method="get">
+        <label for="q">Search Google:</label>
+        <input type="text" id="q" name="q" placeholder="Search Google..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>GET vs POST</h2>
+    <h3>GET Method</h3>
+    <p>Data is appended to the URL. Commonly used for searches.</p>
+    <p>Example: /search?q=javascript</p>
+
+    <h3>POST Method</h3>
+    <p>Data is sent in the request body. Commonly used for registration.</p>
+    <p>HTTPS is still needed to protect sensitive information.</p>
+
+    <h2>Key Points</h2>
+    <ul>
+        <li>Forms collect and submit user input.</li>
+        <li>HTML provides structure.</li>
+        <li>CSS controls appearance.</li>
+        <li>JavaScript can validate user input.</li>
+    </ul>
+</body>
+
+</html>

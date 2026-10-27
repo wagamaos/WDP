@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 - Labels and Accessibility</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 550px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Labels and Accessibility</h1>
+    <p>Click each label to focus its input.</p>
+
+    <form action="#" method="get">
+        <fieldset>
+            <legend>Method 1: for and id</legend>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter username">
+        </fieldset>
+
+        <fieldset>
+            <legend>Method 2: Wrap the input</legend>
+
+            <label>
+                Email
+                <input type="email" name="email" placeholder="name@example.com">
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Incorrect: Placeholder Only</legend>
+
+            <input type="text" name="nickname" placeholder="Enter nickname">
+            <p>This input has no proper label.</p>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Key Points</h2>
+    <ul>
+        <li>Use label for="username" with input id="username".</li>
+        <li>The for and id values must match exactly.</li>
+        <li>Alternatively, put the input inside the label.</li>
+        <li>Clicking a label focuses its associated input.</li>
+        <li>Placeholders are hints, not substitutes for labels.</li>
+    </ul>
+</body>
+
+</html>

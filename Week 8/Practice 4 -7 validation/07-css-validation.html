@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07 - CSS Validation Pseudo-classes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 550px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-top: 5px;
+            border: 2px solid #aaa;
+            border-radius: 5px;
+        }
+
+        input:focus {
+            border-color: #1a56db;
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.2);
+            outline: none;
+        }
+
+        input:invalid:not(:placeholder-shown) {
+            border-color: #dc2626;
+            background: #fee2e2;
+        }
+
+        input:valid:not(:placeholder-shown) {
+            border-color: #16a34a;
+            background: #dcfce7;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS Validation Pseudo-classes</h1>
+    <p>Type into the fields to see their validation states.</p>
+
+    <form action="#" method="get">
+        <label for="email">Email (required)</label>
+        <input type="email" id="email" name="email" placeholder="Enter email" required>
+
+        <label for="password">Password (minimum 8 characters)</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" minlength="8" required>
+
+        <label for="sid">Student ID (9 digits)</label>
+        <input type="text" id="sid" name="sid" placeholder="123456789" pattern="[0-9]{9}" title="Enter exactly 9 digits"
+            required>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <h2>CSS Pseudo-classes</h2>
+    <ul>
+        <li><code>:focus</code> — blue border when focused.</li>
+        <li><code>:valid</code> — green border for valid entered values.</li>
+        <li><code>:invalid</code> — red border for invalid entered values.</li>
+        <li><code>:placeholder-shown</code> — placeholder is currently visible.</li>
+        <li><code>:not(:placeholder-shown)</code> — placeholder is not visible.</li>
+    </ul>
+</body>
+
+</html>

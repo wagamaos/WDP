@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 - Fieldset and Legend</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 550px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+        }
+
+        input,
+        select {
+            padding: 8px;
+            margin-top: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Student Registration</h1>
+
+    <form action="#" method="get">
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="first_name" required>
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="last_name" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Account Details</legend>
+
+            <label for="reg-email">Email</label>
+            <input type="email" id="reg-email" name="email" required>
+
+            <label for="reg-pw">Password</label>
+            <input type="password" id="reg-pw" name="password" minlength="8" required>
+
+            <label for="major">Major</label>
+            <select id="major" name="major" required>
+                <option value="">-- Select Major --</option>
+                <option value="cs">Computer Science</option>
+                <option value="se">Software Engineering</option>
+                <option value="ai">Artificial Intelligence</option>
+            </select>
+        </fieldset>
+
+        <button type="submit">Register</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <h2>Key Points</h2>
+    <ul>
+        <li>fieldset groups related form controls.</li>
+        <li>legend gives the group a title.</li>
+        <li>Labels make individual fields accessible.</li>
+        <li>Use separate groups for personal and account details.</li>
+    </ul>
+</body>
+
+</html>

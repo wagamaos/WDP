@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+</head>
+
+<body>
+    <h1>Student Registration Form</h1>
+
+    <form action="/register" method="POST" id="reg-form" novalidate>
+        <fieldset>
+            <legend>Student Info</legend>
+
+            <label for="sname">Full Name</label>
+            <input type="text" id="sname" name="sname" required minlength="2" maxlength="50">
+            <br><br>
+
+            <label for="sid">Student ID</label>
+            <input type="text" id="sid" name="sid" required pattern="\d{9}" title="Enter a 9-digit number">
+            <br><br>
+
+            <label for="semail">Gachon Email</label>
+            <input type="email" id="semail" name="semail" required>
+            <br><br>
+        </fieldset>
+
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

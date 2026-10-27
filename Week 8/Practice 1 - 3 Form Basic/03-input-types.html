@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 - HTML Input Types</title>
+</head>
+
+<body>
+    <h1>HTML Input Types</h1>
+    <p>Try the different input controls below.</p>
+
+    <form action="https://httpbin.org/post" method="post">
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            <label for="name">Text:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="name@email.com" required>
+            <br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required>
+            <br><br>
+
+            <label for="age">Number (1-100):</label>
+            <input type="number" id="age" name="age" min="1" max="100">
+            <br><br>
+
+            <label for="birthday">Date:</label>
+            <input type="date" id="birthday" name="birthday">
+            <br><br>
+
+            <label for="rating">Rating (0-100):</label>
+            <input type="range" id="rating" name="rating" min="0" max="100" value="50">
+            <br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferences</legend>
+
+            <p>Choose your interests:</p>
+            <input type="checkbox" id="coding" name="interests" value="coding">
+            <label for="coding">Coding</label>
+
+            <input type="checkbox" id="gaming" name="interests" value="gaming">
+            <label for="gaming">Gaming</label>
+
+            <input type="checkbox" id="music" name="interests" value="music">
+            <label for="music">Music</label>
+
+            <p>Choose your study mode:</p>
+            <input type="radio" id="fulltime" name="study" value="fulltime" required>
+            <label for="fulltime">Full-time</label>
+
+            <input type="radio" id="parttime" name="study" value="parttime">
+            <label for="parttime">Part-time</label>
+            <br><br>
+
+            <label for="major">Choose your major:</label>
+            <select id="major" name="major" required>
+                <option value="">-- Choose your major --</option>
+                <option value="cs">Computer Science</option>
+                <option value="se">Software Engineering</option>
+                <option value="ai">Artificial Intelligence</option>
+                <option value="ds">Data Science</option>
+            </select>
+            <br><br>
+
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </fieldset>
+    </form>
+
+    <h2>Key Points</h2>
+    <ul>
+        <li><code>text</code>: General text input.</li>
+        <li><code>email</code>: Checks email format.</li>
+        <li><code>password</code>: Masks typed characters.</li>
+        <li><code>number</code>: Numeric input with optional limits.</li>
+        <li><code>date</code>: Date picker.</li>
+        <li><code>range</code>: Slider control.</li>
+        <li><code>checkbox</code>: Allows multiple selections.</li>
+        <li><code>radio</code>: Allows one selection per name group.</li>
+        <li><code>select</code>: Dropdown menu.</li>
+    </ul>
+</body>
+
+</html>
