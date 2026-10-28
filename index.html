@@ -284,6 +284,12 @@
       border: 1.5px solid #b2dfdb;
     }
 
+    .badge-proj {
+      background: #fdf2f8;
+      color: #be185d;
+      border: 1.5px solid #fbcfe8;
+    }
+
     .week-label h3 {
       font-size: 0.83rem;
       font-weight: 700;
@@ -762,11 +768,14 @@
       <div class="week-group" id="wg-5">
         <div class="week-label" onclick="toggleWeek('wg-5')">
           <span class="week-badge badge-w5">Week 5</span>
-          <h3>Coming Soon</h3>
+          <h3>Java Mini Game Lab</h3>
           <span class="chevron">▶</span>
         </div>
         <div class="week-body">
-          <p class="empty-msg">No HTML lessons are available for this week yet.</p>
+          <p class="sec-title">Interactive Labs</p>
+          <a class="nav-link"
+            onclick="load(this, 'Week 5/Java.html', 'Week 5 — Java Mini Game Lab')"><span
+              class="num">01</span> Java Mini Game Lab</a>
         </div>
       </div>
 
@@ -894,6 +903,21 @@
         </div>
       </div>
 
+      <!-- OVERSEAS STUDENT APPLICATION PROJECT -->
+      <div class="week-group" id="wg-proj">
+        <div class="week-label" onclick="toggleWeek('wg-proj')">
+          <span class="week-badge badge-proj">Project</span>
+          <h3>Overseas Student App</h3>
+          <span class="chevron">▶</span>
+        </div>
+        <div class="week-body">
+          <p class="sec-title">Group 15 Showcase</p>
+          <a class="nav-link"
+            onclick="load(this, 'Overseas student application/application.html', 'Overseas Student Application — Group 15 Showcase')"><span
+              class="num">🎬</span> Video Demo &amp; Slides</a>
+        </div>
+      </div>
+
     </nav>
 
     <!-- VIEWER PANEL -->
@@ -906,8 +930,9 @@
           <span class="pill pill-coral">CSS Fundamentals</span>
           <span class="pill pill-teal">Advanced CSS</span>
           <span class="pill pill-purple">DOM &amp; Events</span>
-          <span class="pill pill-pink">Exercises</span>
+          <span class="pill pill-pink">Java Mini Games</span>
           <span class="pill pill-blue">Fetch &amp; Async</span>
+          <span class="pill pill-pink">Overseas Student App</span>
         </div>
       </div>
       <iframe id="content-frame" title="Topic Viewer"></iframe>
