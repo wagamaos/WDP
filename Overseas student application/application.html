@@ -63,58 +63,6 @@
             display: block;
             outline: none;
         }
-
-        .download-actions {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 28px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 28px;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: #2563eb;
-            color: #ffffff;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
-        }
-
-        .btn-secondary {
-            background: #ffffff;
-            color: #1e293b;
-            border: 1.5px solid #cbd5e1;
-        }
-
-        .btn-secondary:hover {
-            background: #f8fafc;
-            border-color: #94a3b8;
-            transform: translateY(-2px);
-        }
-
-        svg {
-            display: block;
-            flex-shrink: 0;
-        }
     </style>
 </head>
 
@@ -125,31 +73,10 @@
         </header>
 
         <div class="video-box">
-            <video controls preload="metadata">
+            <video controls controlslist="nodownload" preload="metadata">
                 <source src="Done.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-        </div>
-
-        <div class="download-actions">
-            <a href="WDP_PROJECT_kylie_charmine_jaren_yiheng.pptx" download class="btn btn-primary" id="download-slides">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="7 10 12 15 17 10" />
-                    <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-                Download Slides (.pptx)
-            </a>
-            <a href="Done.mp4" download class="btn btn-secondary" id="download-video">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="7 10 12 15 17 10" />
-                    <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-                Download Video (.mp4)
-            </a>
         </div>
     </div>
 </body>
