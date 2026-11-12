@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Practice 5 - Meaningful Alt Text | Web Accessibility Practice</title>
+<style>
+:root{--navy:#172554;--blue:#2563eb;--sky:#eff6ff;--ink:#172033;--muted:#64748b;--line:#dbe3ef;--green:#15803d;--bg:#f6f8fc}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:linear-gradient(120deg,#172554,#2563eb);color:white;padding:34px 22px}
+header .wrap,main{max-width:900px;margin:auto}header p{opacity:.9;margin:6px 0 0}
+main{padding:26px 18px 60px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;margin:16px 0;box-shadow:0 5px 18px #1725540a}
+h1{font-size:clamp(1.8rem,4vw,2.5rem);margin:0}h2{font-size:1.25rem;margin:0 0 10px;color:var(--navy)}h3{margin:18px 0 8px}
+.tag{display:inline-block;background:#dbeafe;color:#1e40af;border-radius:99px;padding:3px 10px;font-size:.8rem;font-weight:700}
+p{margin:8px 0}li{margin:6px 0}code,pre,textarea{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#0f172a;color:#e2e8f0;padding:16px;border-radius:12px;font-size:.9rem}
+textarea{width:100%;min-height:190px;padding:14px;border:1px solid #cbd5e1;border-radius:10px;font-size:13px;line-height:1.5}
+button{border:0;border-radius:9px;background:var(--blue);color:white;padding:10px 16px;font-weight:700;cursor:pointer;margin:6px 6px 6px 0}
+button:hover{background:#1d4ed8}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+.secondary{background:#e2e8f0;color:#172033}.result{padding:12px;border-radius:10px;background:#f1f5f9;margin-top:10px;min-height:42px}
+.good{color:var(--green);font-weight:700}.note{border-left:4px solid #60a5fa;padding:10px 14px;background:var(--sky);border-radius:0 8px 8px 0}
+label{display:block;font-weight:650;margin:10px 0 5px}input{padding:10px;border:1px solid #cbd5e1;border-radius:8px;width:100%;max-width:420px}
+footer{color:var(--muted);font-size:.85rem;text-align:center;padding:20px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><span class="tag">WEB ACCESSIBILITY · A11Y</span><h1>Practice 5 - Meaningful Alt Text</h1><p>Write text alternatives based on the purpose of each image.</p></div></header>
+<main>
+<section class="card"><h2>Quick review</h2><ul><li>Informational image: describe the information it conveys.</li><li>Decorative image: use <code>alt=""</code>.</li><li>Linked image: describe the link destination.</li><li>Complex chart: provide a short alt and a longer description nearby.</li></ul></section>
+<section class="card"><h2>Practice: Choose the right alt text</h2><label for="q1">1. A decorative divider</label><select id="q1"><option value="">Choose...</option><option value="empty">alt=""</option><option value="image">alt="image"</option><option value="wave">alt="blue wave"</option></select>
+<label for="q2">2. A logo linking to the homepage</label><select id="q2"><option value="">Choose...</option><option value="logo">alt="logo"</option><option value="home">alt="Gachon University homepage"</option><option value="empty">alt=""</option></select>
+<label for="q3">3. Enrollment chart: 1,200 in 2024, 1,400 in 2025, 1,476 in 2026</label><select id="q3"><option value="">Choose...</option><option value="chart">alt="chart"</option><option value="data">alt="Bar chart showing enrollment increased from 1,200 in 2024 to 1,476 in 2026"</option><option value="empty">alt=""</option></select>
+<button onclick="check()">Check answers</button><div class="result" id="result" aria-live="polite"></div></section>
+</main>
+<footer>Web Accessibility Practice · Open this file in your browser to use it.</footer>
+<script>function check(){let a=['empty','home','data'],ids=['q1','q2','q3'],n=ids.filter((id,i)=>document.getElementById(id).value===a[i]).length;document.getElementById('result').textContent=`You got ${n}/3 correct.`;}</script>
+</body></html>
