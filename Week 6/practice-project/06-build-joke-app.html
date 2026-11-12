@@ -418,11 +418,12 @@
 
         <!-- CATEGORY FILTER -->
         <div class="filter-row" id="filterRow">
-            <button class="filter-btn active" data-type="random" onclick="setCategory(this)">🎲 Any</button>
-            <button class="filter-btn" data-type="programming" onclick="setCategory(this)">💻 Programming</button>
-            <button class="filter-btn" data-type="general" onclick="setCategory(this)">😄 General</button>
-            <button class="filter-btn" data-type="knock-knock" onclick="setCategory(this)">🚪 Knock-Knock</button>
-            <button class="filter-btn" data-type="dad" onclick="setCategory(this)">👨 Dad</button>
+            <button class="filter-btn active" data-type="Any" onclick="setCategory(this)">🎲 Any</button>
+            <button class="filter-btn" data-type="Programming" onclick="setCategory(this)">💻 Programming</button>
+            <button class="filter-btn" data-type="Misc" onclick="setCategory(this)">😄 Misc</button>
+            <button class="filter-btn" data-type="Pun" onclick="setCategory(this)">🎭 Pun</button>
+            <button class="filter-btn" data-type="Spooky" onclick="setCategory(this)">👻 Spooky</button>
+            <button class="filter-btn" data-type="Christmas" onclick="setCategory(this)">🎄 Christmas</button>
         </div>
 
         <!-- ACTIONS -->
@@ -480,7 +481,7 @@
     <script>
         /* ── STATE ── */
         let currentJoke = null;
-        let selectedType = 'random';
+        let selectedType = 'Any';
         let reactions = { '😂': 0, '😐': 0, '😬': 0 };
         let history = JSON.parse(localStorage.getItem('jokeHistory') || '[]');
         let favourites = JSON.parse(localStorage.getItem('jokeFavs') || '[]');
@@ -517,29 +518,34 @@
             document.getElementById('jokeSetup').textContent = '';
             document.getElementById('jokePunch').textContent = '';
 
-            const endpoint = selectedType === 'random'
-                ? 'https://official-joke-api.appspot.com/random_joke'
-                : `https://official-joke-api.appspot.com/jokes/${selectedType}/random`;
+            const category = (!selectedType || selectedType === 'random') ? 'Any' : selectedType;
+            const endpoint = `https://v2.jokeapi.dev/joke/${category}?safe-mode&type=twopart`;
 
             try {
                 const res = await fetch(endpoint);
                 if (!res.ok) throw new Error('Bad response');
 
-                let data = await res.json();
-                // category endpoint returns an array
-                if (Array.isArray(data)) data = data[0];
+                const data = await res.json();
+                if (data.error) throw new Error(data.message || 'Error loading joke');
 
-                currentJoke = data;
+                const joke = {
+                    id: data.id,
+                    type: data.category || category,
+                    setup: data.setup,
+                    punchline: data.delivery || data.punchline
+                };
 
-                document.getElementById('jokeCatBadge').textContent = data.type || selectedType;
-                document.getElementById('jokeSetup').textContent = data.setup;
-                document.getElementById('jokePunch').textContent = data.punchline;
+                currentJoke = joke;
+
+                document.getElementById('jokeCatBadge').textContent = joke.type;
+                document.getElementById('jokeSetup').textContent = joke.setup;
+                document.getElementById('jokePunch').textContent = joke.punchline;
 
                 // Show reveal button
                 document.getElementById('revealBtn').hidden = false;
 
                 // Save to history
-                addToHistory(data);
+                addToHistory(joke);
                 totalLoaded++;
                 localStorage.setItem('jokeTotal', totalLoaded);
                 updateCounters();
