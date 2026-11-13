@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 10 Monday — Git Practice</title>
+  <style>
+    :root { color-scheme: light; --ink: #1e293b; --muted: #526174; --accent: #0f766e; --line: #dbe4e8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 32px 18px; background: #f1f5f4; color: var(--ink); font: 16px/1.6 system-ui, sans-serif; }
+    main { max-width: 860px; margin: auto; }
+    header, section { margin-bottom: 18px; padding: 24px; border: 1px solid var(--line); border-radius: 14px; background: white; }
+    h1, h2 { line-height: 1.2; }
+    h1 { margin: 0 0 8px; }
+    h2 { margin-top: 0; }
+    p { color: var(--muted); }
+    code { padding: 2px 5px; border-radius: 4px; background: #ecfdf5; }
+    pre { overflow-x: auto; padding: 16px; border-radius: 10px; background: #102a2a; color: #e6fffb; }
+    .tag { color: var(--accent); font-size: .8rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="tag">Week 10 · Monday · Practice</div>
+      <h1>Git Workflow Lab</h1>
+      <p>Practice a clean local history: create a repository, make a feature branch, merge it, then connect a remote.</p>
+    </header>
+    <section>
+      <h2>1. Create a first commit</h2>
+      <p>Run these commands from a new practice folder. Add a simple <code>index.html</code> before staging.</p>
+      <pre><code>git init
+git status
+git add index.html
+git commit -m "Create starter page"
+git log --oneline</code></pre>
+    </section>
+    <section>
+      <h2>2. Branch and merge a change</h2>
+      <p>Keep the stable page on <code>main</code>. Create a feature branch, add a stylesheet, commit it, and merge it back.</p>
+      <pre><code>git switch -c feature-styles
+git add style.css
+git commit -m "Add page styles"
+git switch main
+git merge feature-styles
+git log --oneline --graph</code></pre>
+    </section>
+    <section>
+      <h2>3. Connect and publish the repository</h2>
+      <p>Create an empty public GitHub repository named <code>webpro-w9</code>. Replace the example URL with its URL; do not put passwords or tokens in the remote URL.</p>
+      <pre><code>git remote add origin https://github.com/YOUR-USERNAME/webpro-w9.git
+git remote -v
+git push -u origin main</code></pre>
+      <p>Confirm the files and commit history appear on GitHub. The homework page contains the project prepared for this push.</p>
+    </section>
+  </main>
+</body>
+</html>
