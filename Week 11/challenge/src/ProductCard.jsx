@@ -11,7 +11,7 @@ function ProductCard({ name, price, rating, inStock, imageUrl }) {
 
   return (
     <article className="product-card">
-      <img className="product-card__image" src={imageUrl} alt={name} />
+      <img className="product-card__image" src={imageUrl} alt={name} loading="lazy" decoding="async" />
       <div className="product-card__body">
         <h2>{name}</h2>
         <p className="product-card__price">

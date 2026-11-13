@@ -53,7 +53,7 @@
       }).format(price);
 
       return h('article', { className: 'product-card' },
-        h('img', { className: 'product-image', src: imageUrl, alt: name }),
+        h('img', { className: 'product-image', src: imageUrl, alt: name, loading: 'lazy', decoding: 'async' }),
         h('div', { className: 'product-body' },
           h('h2', null, name),
           h('p', { className: 'product-price' }, formattedPrice),
