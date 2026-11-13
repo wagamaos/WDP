@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 11 — React Portfolio Gallery</title>
+  <style>
+    :root { --ink: #1e293b; --muted: #526174; --accent: #4f46e5; --line: #e0e7ff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 32px 18px; background: #f5f6ff; color: var(--ink); font: 16px/1.65 system-ui, sans-serif; }
+    main { max-width: 860px; margin: auto; }
+    header, section { margin-bottom: 18px; padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: white; }
+    h1, h2 { line-height: 1.2; }
+    h1 { margin: 8px 0; }
+    h2 { margin-top: 0; }
+    p, li { color: var(--muted); }
+    code, pre { border-radius: 7px; background: #eef2ff; }
+    code { padding: 2px 6px; }
+    pre { overflow-x: auto; padding: 16px; }
+    .tag { color: var(--accent); font-size: .8rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="tag">Week 11 · Homework</div>
+      <h1>React Portfolio Gallery</h1>
+      <p>Build a portfolio gallery from reusable React components and filter the projects by technology.</p>
+    </header>
+    <section>
+      <h2>Completed project</h2>
+      <p>The React source project is in <code>Week 11/portfolio-gallery</code>. It uses data-driven components and filters the cards in response to the selected technology.</p>
+      <ul>
+        <li><code>ProjectCard</code> renders the title, description, tech stack, GitHub link, and demo link.</li>
+        <li><code>ProjectList</code> renders three projects from the project data array.</li>
+        <li><code>FilterBar</code> filters projects by technology and supports an All option.</li>
+        <li><code>ProfileCard</code>, <code>NotificationList</code>, and reusable <code>Card</code> components implement the props, defaults, conditional rendering, keys, and children exercises.</li>
+        <li>Submit the GitHub repository URL on Cybercampus before the next class.</li>
+      </ul>
+      <p><a href="portfolio-gallery/demo.html">Open the working gallery demo</a></p>
+    </section>
+    <section>
+      <h2>Run the React source project</h2>
+      <p>In a terminal, open the <code>portfolio-gallery</code> folder, install dependencies, and start the development server:</p>
+      <pre><code>npm install
+npm start</code></pre>
+    </section>
+  </main>
+</body>
+</html>
