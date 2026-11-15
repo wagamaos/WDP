@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 11 Challenge — Course Catalog</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; color: #172033; background: #f5f7fb; }
+    * { box-sizing: border-box; }
+    body { min-width: 320px; min-height: 100vh; margin: 0; padding: 64px 18px; background: radial-gradient(ellipse at 85% 4%, #dbeafe 0, transparent 26rem), #f5f7fb; }
+    main { width: min(940px, 100%); margin: auto; }
+    header { margin-bottom: 32px; }
+    .eyebrow { margin: 0 0 12px; color: #5368a6; font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { margin: 0; color: #172033; font-size: clamp(2.5rem, 7vw, 4.25rem); letter-spacing: -.065em; line-height: 1.05; }
+    header > p:last-child { color: #68748a; font-size: 1.05rem; }
+    .course-catalog { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+    .course-card { min-height: 190px; padding: 24px; border: 1px solid #e1e7f0; border-radius: 18px; background: white; box-shadow: 0 12px 30px #18294a0a; }
+    .course-card__heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .course-card h2 { margin: 0; color: #172033; font-size: 1.15rem; line-height: 1.35; }
+    .course-badge { flex: 0 0 auto; padding: 5px 10px; border-radius: 999px; font-size: .76rem; font-weight: 800; }
+    .course-badge--required { background: #fee2e2; color: #c62828; }
+    .course-badge--elective { background: #edf0f5; color: #667085; }
+    .course-card__instructor { margin: 13px 0 26px; color: #68748a; }
+    .course-card__credits { display: flex; align-items: center; gap: 7px; margin: 0; color: #5368a6; font-size: .85rem; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Week 11 · React challenge</p>
+      <h1>Course Catalog</h1>
+      <p>Explore this semester’s courses and see which ones are required.</p>
+    </header>
+    <div id="root"></div>
+  </main>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script>
+    const h = React.createElement;
+    const courses = [
+      { id: 1, title: 'Web Programming', instructor: 'Dr. Toshpulatov', credits: 3, required: true },
+      { id: 2, title: 'Database Systems', instructor: 'Dr. Kim', credits: 3, required: true },
+      { id: 3, title: 'Mobile App Dev', instructor: 'Dr. Lee', credits: 2, required: false }
+    ];
+
+    function CourseCard({ title, instructor, credits, required }) {
+      return h('article', { className: 'course-card' },
+        h('div', { className: 'course-card__heading' },
+          h('h2', null, title),
+          h('span', { className: `course-badge ${required ? 'course-badge--required' : 'course-badge--elective'}` },
+            required ? '필수' : '선택'
+          )
+        ),
+        h('p', { className: 'course-card__instructor' }, instructor),
+        h('p', { className: 'course-card__credits' }, h('span', { 'aria-hidden': 'true' }, '◷'), ` ${credits} credits`)
+      );
+    }
+
+    function CourseCatalog() {
+      return h('section', { className: 'course-catalog', 'aria-label': 'Available courses' },
+        courses.map((course) => h(CourseCard, { key: course.id, ...course }))
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(h(CourseCatalog));
+  </script>
+</body>
+</html>
