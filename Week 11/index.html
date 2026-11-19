@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6ff">
+  <title>Week 11 — React Components &amp; Props</title>
+  <style>
+    :root {
+      color: #1e293b;
+      background: #f5f6ff;
+      font: 16px/1.6 system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body { margin: 0; padding: 48px 20px; }
+
+    main { width: min(900px, 100%); margin: 0 auto; }
+
+    header, .page-link {
+      border: 1px solid #e0e7ff;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 12px 32px #26375a0d;
+    }
+
+    header { margin-bottom: 22px; padding: 30px; }
+
+    .eyebrow {
+      margin: 0;
+      color: #4f46e5;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 { margin: 8px 0; font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.15; }
+
+    header p:last-child { margin-bottom: 0; color: #526174; }
+
+    .page-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+
+    .page-link {
+      display: block;
+      padding: 22px;
+      color: inherit;
+      text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .page-link:hover, .page-link:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px #26375a18;
+    }
+
+    .page-link h2 { margin: 0 0 6px; font-size: 1.1rem; }
+
+    .page-link p { margin: 0; color: #526174; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Coursework · Week 11</p>
+      <h1>React Components &amp; Props</h1>
+      <p>Browse the exercises, homework, demos, and student profile-card submission for this week.</p>
+    </header>
+    <nav class="page-list" aria-label="Week 11 pages">
+      <a class="page-link" href="components-practice.html">
+        <h2>Components &amp; Props Practice</h2>
+        <p>Completed component exercises and examples.</p>
+      </a>
+      <a class="page-link" href="assignment.html">
+        <h2>Portfolio Gallery Assignment</h2>
+        <p>Assignment overview and run instructions.</p>
+      </a>
+      <a class="page-link" href="student-profile-submission.html">
+        <h2>Student Profile Submission</h2>
+        <p>View the code-check screenshot and submission code.</p>
+      </a>
+      <a class="page-link" href="portfolio-gallery/demo.html">
+        <h2>Portfolio Gallery Demo</h2>
+        <p>Open the working gallery example.</p>
+      </a>
+      <a class="page-link" href="challenge/demo.html">
+        <h2>Product Card Challenge</h2>
+        <p>View the product-card exercise.</p>
+      </a>
+      <a class="page-link" href="course-catalog/demo.html">
+        <h2>Course Catalog Challenge</h2>
+        <p>View the course-catalog exercise.</p>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>
